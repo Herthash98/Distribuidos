@@ -1,0 +1,60 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-94.57031250000001%2C-53.95608553098789%2C-32.51953125000001%2C-23.56398712845123&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=4/-40.45/-63.54">Ver mapa más grande</a></small>
+</body>
+<script src="api.js"></script>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Ejercicio 4 Distribuidos</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css">
+</head>
+<body>
+<h1>Ejercicio 4 con Leaflet y OSM</h1>
+
+<p>Ingrese Latitud</p>
+<input type="number" id="lat" placeholder="ej:-31.52584"> 
+
+<p>Ingrese Longitud</p>
+<input type="number" id="long" placeholder="ej:-68.57707">
+
+<button onclick="actualiza(document.getElementById('lat').value, document.getElementById('long').value)" >
+    Aceptar
+</button>
+
+
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>	  
+<div id="map" class="map map-home" style="margin:12px 0 12px 0;height:400px;"></div>
+<script>
+	var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+		osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+		osm = L.tileLayer(osmUrl, {maxZoom: 18, attribution: osmAttrib});
+	var map = L.map('map').setView([-31.5406978, -68.5788066], 17).addLayer(osm);
+	var marcador = new L.marker([-31.5406978, -68.5788066])
+		// .addTo(map)
+		// //.bindPopup('La Catedral de la Habana.')
+		// .openPopup();
+        map.addLayer(marcador);
+
+        function actualiza (lat,long) {
+        map.removeLayer(marcador);
+	    map.setView([lat, long], 17);
+	    marcador= new L.marker([lat, long])
+		//.addTo(map)
+		//.bindPopup('La Catedral de la Habana.')
+		//.openPopup();
+        map.addLayer(marcador);
+        }
+</script>
+  </body>
+</html>
