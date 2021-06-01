@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoName Distribuidos</title>
+    <style>
+        body{
+            font-family: Helvetica, sans-serif;
+        }
+        #datos,#datos2{
+            background-color: sandybrown;
+        }
+    </style>
+</head>
+<body>
+    <p>Buscar por Codigo Postal:</p>
+    <input type="number" name="postalCode
+<button onclick="postalCodeSearch(document.getElementById('postalCode').value)">Buscar</button>
+
+    <div id="datos"></div>
+
+    <p>Buscar por Codigo Postal Cercanos:</p>
+    <input type="number" name="postalCode2" id="postalCode2">
+    <button onclick="nearbyPostalCodes(document.getElementById('postalCode2').value)">Buscar</button>
+    
+    <div id="datos2"></div>
+    
+</body>
+<script src="api.js"></script>
+</html>
